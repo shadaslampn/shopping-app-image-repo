@@ -15,5 +15,5 @@ variable "ami_id" {
 
 locals {
   #image-timestamp = "${formatdate("DD-MM-YYYY-hh-mm", timestamp())}"
-  image-name      = "${var.project_name}-${var.project_env}-${GITHUB_RUN_NUMBER}"
+  image-name      = "${var.project_name}-${var.project_env}-${{github.run_number}}"
 }

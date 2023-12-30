@@ -27,6 +27,11 @@ jobs:
         run: packer init .
         working-directory: ./packer/
 
+      - uses: actions/set-env@v3
+        with:
+          name: GITHUB_RUN_NUMBER
+          value: ${{ github.run_number }}
+
       - name: "Packer validate"
         run: packer validate -var-file="dev.pkrvars.hcl" .
         working-directory: ./packer/
